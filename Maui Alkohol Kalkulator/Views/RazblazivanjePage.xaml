@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Maui_Alkohol_Kalkulator.Utils"
+             x:Class="Maui_Alkohol_Kalkulator.Views.RazblazivanjePage"
+>
+
+    <!-- ScrollView za omogućavanje skrolovanja sadržaja -->
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="8">
+
+            <!-- Naslov -->
+            <Label Text="Izračunavanje razblaživanja"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Pocetna kolicina -->
+            <Label Text="Početna količina:"
+                   FontSize="16"
+                   Margin="0,8,0,0"
+                                      HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
+
+            <HorizontalStackLayout Spacing="0"
+                                   Margin="10,8,10,0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                <Entry x:Name="etPocetnaKolicina"
+                       Placeholder="Unesite početnu količinu"
+                    Keyboard="Numeric"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="48"
+                     WidthRequest="300">
+                    <Entry.Behaviors>
+                        <behaviors:NumericEntryBehavior ClearButton="{x:Reference clearBtnKolicina}" />
+                    </Entry.Behaviors>
+                </Entry>
+                <ImageButton x:Name="clearBtnKolicina"
+                             Source="cl_clear.png"
+                             HeightRequest="48"
+                             WidthRequest="48"
+                             BackgroundColor="Transparent"
+                             IsVisible="False"
+                             Clicked="OnClearBtnClicked" />
+            </HorizontalStackLayout>
+
+            <!-- Početna jačina -->
+            <Label Text="Početna jačina:"
+                   FontSize="16"
+                   Margin="0,8,0,0" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
+
+            <HorizontalStackLayout Spacing="0"
+                                   Margin="10,8,10,0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                <Entry x:Name="etPocetnaJacina"
+                       Placeholder="Unesite početnu jačinu"
+                       Keyboard="Numeric"
+                       HeightRequest="48"
+                       HorizontalOptions="FillAndExpand"
+                       WidthRequest="300">
+                <Entry.Behaviors>
+                        <behaviors:NumericEntryBehavior ClearButton="{x:Reference clearBtnPocetna}" />
+                </Entry.Behaviors>
+                </Entry>
+                <ImageButton x:Name="clearBtnPocetna"
+                             Source="cl_clear.png"
+                             HeightRequest="48"
+                             WidthRequest="48"
+                             BackgroundColor="Transparent"
+                             IsVisible="False"
+                             Clicked="OnClearBtnClicked" />
+            </HorizontalStackLayout>
+
+            <!-- Krajnja jačina -->
+            <Label Text="Željena jačina:"
+                   FontSize="16"
+                   Margin="0,8,0,0"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"/>
+
+            <HorizontalStackLayout Spacing="0"
+                                   Margin="10,8,10,0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                <Entry x:Name="etKrajnjaJacina"
+                       Placeholder="Unesite krajnju jačinu"
+                       Keyboard="Numeric"
+                       HeightRequest="48"
+                       WidthRequest="300"
+                       HorizontalOptions="FillAndExpand">
+                    <Entry.Behaviors>
+                        <behaviors:NumericEntryBehavior ClearButton="{x:Reference clearBtnZeljena}" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <ImageButton x:Name="clearBtnZeljena"
+                             Source="cl_clear.png"
+                             HeightRequest="48"
+                             WidthRequest="48"
+                             BackgroundColor="Transparent"
+                             IsVisible="False"
+                             Clicked="OnClearBtnClicked" />
+            </HorizontalStackLayout>
+
+            <!-- Dugme za izračunavanje -->
+            <Button x:Name="btnIzracunaj"
+                    Text="Izračunaj"
+                    FontAttributes="Bold"
+                    Margin="0,16,0,0"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"
+                    Clicked="OnCalculateClicked" />
+
+            <!-- Prikaz rezultata -->
+            <Label x:Name="tvRezultat"
+                   Text="Rezultat:"
+                   FontSize="18"
+                   Margin="0,24,0,0"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

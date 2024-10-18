@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui_Alkohol_Kalkulator.Views.StartPage"
+             Padding="10"
+            >
+    <Grid Padding="5">
+        <!-- Pozadinska slika -->
+        <Image Source="background_image.png"
+               Aspect="AspectFill"
+               Opacity="0.25"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <!-- Glavni sadržaj -->
+        <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
+            <!-- Naslov -->
+            <Label Text="Dobrodošli u Alkohol Kalkulator"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0" />
+
+
+        </StackLayout>
+
+        <!-- Autor -->
+        <Label Text="Autor: Milan Lakatoš Petrović"
+               FontSize="16"
+               TextColor="Black"
+               HorizontalOptions="End"
+               VerticalOptions="End"
+               Margin="0,0,16,16" />
+    </Grid>
+
+</ContentPage>

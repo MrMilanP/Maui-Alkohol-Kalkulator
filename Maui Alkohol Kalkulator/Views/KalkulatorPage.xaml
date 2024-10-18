@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Maui_Alkohol_Kalkulator.Utils"
+             x:Class="Maui_Alkohol_Kalkulator.Views.KalkulatorPage"
+>
+
+    <!-- ScrollView za omogućavanje skrolovanja sadržaja -->
+    <ScrollView>
+        <VerticalStackLayout Spacing="16">
+
+            <!-- Naslov aplikacije -->
+            <Label Text="Kalkulator alkohola"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center" />
+
+            <!-- Unos očitane vrednosti alkohola -->
+            <Label Text="Očitana vrednost alkohola:"
+                   FontSize="16"
+                   Margin="10,8,10,0"
+                   HorizontalOptions="Center"
+                   WidthRequest="300" />
+
+            <HorizontalStackLayout Spacing="0"
+                                   Margin="10,8,10,0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                <Entry x:Name="etOcitanaVrednost"
+                    Placeholder="Unesite vrednost"
+                    Keyboard="Numeric"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="48"
+                     WidthRequest="300">
+                    <Entry.Behaviors>
+                        <behaviors:NumericEntryBehavior ClearButton="{x:Reference clearBtnOcitanaVrednost}" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <ImageButton x:Name="clearBtnOcitanaVrednost"
+                 Source="cl_clear.png"
+                 HeightRequest="48"
+                 WidthRequest="48"
+                 BackgroundColor="Transparent"
+                 IsVisible="False"
+                 Clicked="OnClearBtnClicked" />
+
+            </HorizontalStackLayout>
+
+            <!-- Unos temperature -->
+            <Label Text="Temperatura:"
+                   FontSize="16"
+                   Margin="10,8,10,0"
+                   HorizontalOptions="Center"
+                   WidthRequest="300" />
+
+            <HorizontalStackLayout Spacing="0"
+                                   Margin="10,8,10,0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                <Entry x:Name="etTemperatura"
+                    Placeholder="Unesite temperaturu"
+                    Keyboard="Numeric"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="48"
+                    WidthRequest="300">
+                    <Entry.Behaviors>
+                        <behaviors:NumericEntryBehavior ClearButton="{x:Reference clearBtnTemperatura}" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <ImageButton x:Name="clearBtnTemperatura"
+                 Source="cl_clear.png"
+                 HeightRequest="48"
+                 WidthRequest="48"
+                 BackgroundColor="Transparent"
+                 IsVisible="False"
+                 Clicked="OnClearBtnClicked" />
+            </HorizontalStackLayout>
+
+            <!-- Unos referentne temperature alkoholmetra -->
+            <Label Text="Referentna temperatura alkoholmetra:"
+                   FontSize="16"
+                   Margin="10,8,10,0"
+                   HorizontalOptions="Center"
+                   WidthRequest="300" />
+
+            <HorizontalStackLayout Spacing="0"
+                                   Margin="10,8,10,0"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                <!-- Picker za referentnu temperaturu alkoholmetra -->
+                <Picker x:Name="spinnerReferentnaTemperatura"
+        HorizontalOptions="FillAndExpand"
+        HeightRequest="48"
+        WidthRequest="300">
+                    <Picker.Items>
+                        <x:String>20</x:String>
+                        <x:String>15</x:String>
+                    </Picker.Items>
+                </Picker>
+            </HorizontalStackLayout>
+
+            <!-- Dugme za izračunavanje -->
+            <Button x:Name="btnIzracunaj"
+                    Text="Izračunaj"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    Margin="0,16,0,0"
+                    Clicked="OnCalculateClicked" />
+
+            <!-- Prikaz rezultata -->
+            <Label x:Name="tvRezultat"
+                   Text="Prava jačina alkohola:"
+                   FontSize="18"
+                   Margin="0,16,0,0"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="tvRezultatGradi"
+                   Text="Prava jačina u gradima:"
+                   FontSize="18"
+                   Margin="0,28,0,0"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
